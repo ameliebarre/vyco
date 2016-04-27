@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160426181702) do
     t.string   "pseudo"
     t.string   "password"
     t.string   "mail"
+    t.integer  "id_album"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

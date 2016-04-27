@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :pseudo
       t.string :password
       t.string :mail
+      t.integer :id_album
 
       t.timestamps null: false
     end
