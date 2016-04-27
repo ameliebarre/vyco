@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  resources :artists
+  resources :playlists
+  resources :tracks
   resources :albums
-  get 'home/index'
+  resources :users
   root 'home#index'
   get 'index' => 'home#index'
-  resources :users
 end
