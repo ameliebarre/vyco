@@ -3,11 +3,10 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :name
       t.string :firstname
-      t.string :picture
       t.string :pseudo
-      t.string :password
       t.string :mail
       t.integer :id_album
+      t.integer :id_playlist
 
       t.timestamps null: false
     end

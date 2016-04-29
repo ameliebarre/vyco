@@ -28,12 +28,13 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        flash[:notice] = "Votre inscription a bien été prise en compte."
+        flash[:color]= "valid"
       else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        flash[:notice] = "Le formulaire est invalide."
+        flash[:color]= "invalid"
       end
+      render "new"
     end
   end
 
