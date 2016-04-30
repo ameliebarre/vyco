@@ -26,16 +26,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    respond_to do |format|
-      if @user.save
-        flash[:notice] = "Votre inscription a bien été prise en compte."
-        flash[:color]= "valid"
-      else
-        flash[:notice] = "Le formulaire est invalide."
-        flash[:color]= "invalid"
-      end
-      render "new"
+    if @user.save
+      redirect_to @user
+    else
+      render 'new'
     end
+
   end
 
   # PATCH/PUT /users/1
@@ -67,6 +63,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :firstname, :pseudo, :password, :mail)
+      params.require(:user).permit(:name, :firstname, :pseudo, :password, :password_confirmation, :mail)
     end
 end

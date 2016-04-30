@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20160429104923) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name"
+    t.string   "cover"
     t.date     "date_release"
     t.string   "style"
     t.integer  "id_artist"
@@ -48,9 +49,9 @@ ActiveRecord::Schema.define(version: 20160429104923) do
     t.string   "name"
     t.string   "firstname"
     t.string   "pseudo"
-    t.string   "password"
     t.string   "mail"
     t.integer  "id_album"
+    t.integer  "id_playlist"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
