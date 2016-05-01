@@ -12,8 +12,14 @@
 </head>
 <body>
 
-   <% if logged_in? %>
-      <%= render 'layouts/header' %>
+   <%
+      if logged_in?
+         render 'layouts/header'
+      else
+   %>
+      <div id="login-header">
+         <%= content_tag :span, "Vyco", :class => "logo" %>
+      </div>
    <% end %>
 
    <div class="container-fluid wrapper">

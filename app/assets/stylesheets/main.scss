@@ -19,57 +19,38 @@ h1 {
 }
 
 .btn-submit {
-   background: #F32200;
-   padding: 5px 8px;
-   border-radius: 3px;
-   border: none;
-   color: #fff;
-   font-family: 'Montserrat', Arial, sans-serif;
-   text-transform: uppercase;
-   font-size: 11px;
+   background: #FF5A51;
+    padding: 5px 8px;
+    border-radius: 50px;
+    border: none;
+    color: #fff;
+    font-family: 'Montserrat', Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 11px;
+    width: 150px;
    &:focus {
       outline: none;
+      color: #fff;
    }
    &:hover {
-      background: #D91E00;
+      background: #E03A47;
+      color: #fff;
+      outline: none;
    }
 }
 
-/*
 #main-header {
-   .navbar {
-      .navbar-brand {
-         background: url("/assets/logo.svg") center center no-repeat;
-         width: 114px;
-         margin: 20px 0;
-         text-indent: -99999px;
-         display: block;
-         height: 39px;
-         background-size: 100%;
-      }
-   }
-}
-*/
-
-#main-header {
-   top: 0;
-   left: 0;
-   position: absolute;
-   width: 250px;
-   background: #000;
-   z-index: 1000;
-   height: 100%;
+   width: 100%;
+   background: #FF5A51;
    .logo {
       background: url("/assets/logo.svg") center center no-repeat;
       width: 114px;
-      margin: 40px auto 20px auto;
       text-indent: -99999px;
       display: block;
       height: 39px;
       background-size: 100%;
    }
    .login-section {
-      text-align: center;
       a {
          font-family: 'Montserrat', Arial, sans-serif;
          text-transform: uppercase;
@@ -79,6 +60,16 @@ h1 {
    }
 }
 
-.wrapper {
-   margin-left: 250px;
+#login-header {
+   padding: 20px 0;
+   border-bottom: 1px solid #000;
+   .logo {
+      background: url("/assets/logo_black.svg") center center no-repeat;
+      width: 180px;
+      text-indent: -99999px;
+      display: block;
+      height: 55px;
+      background-size: 100%;
+      margin: 0 auto;
+   }
 }

@@ -33,3 +33,45 @@ aside {
 .gravatar_edit {
   margin-top: 15px;
 }
+
+#signup-form {
+   margin-top: 70px;
+   input {
+      height: 40px;
+      &:focus {
+         outline: none;
+         box-shadow: none;
+         border: 1px solid #999;
+      }
+   }
+   .btn-submit {
+      margin: 0 auto;
+      display: block;
+   }
+
+   .logo {
+      background: url("/assets/logo.svg") center center no-repeat;
+      width: 114px;
+      margin: 40px auto 20px auto;
+      text-indent: -99999px;
+      display: block;
+      height: 39px;
+      background-size: 100%;
+   }
+   .terms {
+      text-align: center;
+      width: 300px;
+      font-size: 10px;
+      color: #999;
+      margin: 0 auto 20px auto;
+   }
+   .have-account {
+      text-align: center;
+      margin: 20px 0;
+   }
+   span, a {
+      color: #E03A47;
+      text-decoration: underline;
+      cursor: pointer;
+   }
+}
