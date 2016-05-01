@@ -1,2 +1,16 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<h1>Connexion</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= simple_form_for(:session, url: login_path) do |f| %>
+
+      <%= f.input :mail, label: 'E-mail', class: 'form-control' %>
+
+      <%= f.input :password, label: 'Mot de passe', class: 'form-control' %>
+
+      <%= f.submit "Connexion", class: "btn btn-primary" %>
+    <% end %>
+
+    <p><%= link_to "Pas de compte ?", signup_path %></p>
+  </div>
+</div>
