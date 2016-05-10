@@ -1,0 +1,23 @@
+<div id="signup-section" class="authentification row">
+   <div class="col-md-4 col-sm-6 col-xs-8 col-md-offset-4 col-sm-offset-3 col-xs-offset-2">
+      <h2>Sign up</h2>
+
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :email, required: true, autofocus: true, label: false, placeholder: 'Email' %>
+          <%= f.input :password, required: true, label: false, placeholder: 'Mot de passe' %>
+          <%= f.input :password_confirmation, required: true, label: false, placeholder: 'Confirmation du mot de passe' %>
+        </div>
+
+        <p id="terms">Si vous cliquez sur « Connexion avec Facebook » et que n'êtes pas encore utilisateur de Vyco, vous serez inscrit, ce qui signifie que vous acceptez les <span>conditions d'utilisation</span> et la <span>politique de confidentialité</span> de Vyco.</p>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up", class: 'btn btn-submit' %>
+        </div>
+      <% end %>
+
+      <p id="still-have-account">Déjà inscrit ? <span><%= render "devise/shared/links" %></span></p>
+   </div>
+</div>

@@ -20,17 +20,19 @@ h1 {
 
 .btn-submit {
    background: #FF5A51;
-    padding: 5px 8px;
-    border-radius: 50px;
-    border: none;
-    color: #fff;
-    font-family: 'Montserrat', Arial, sans-serif;
-    text-transform: uppercase;
-    font-size: 11px;
-    width: 150px;
+   padding: 5px 8px;
+   border-radius: 50px;
+   border: none;
+   color: #fff;
+   font-family: 'Montserrat', Arial, sans-serif;
+   text-transform: uppercase;
+   font-size: 11px;
+   width: 150px;
+   display: block;
    &:focus {
       outline: none;
       color: #fff;
+      background: #E03A47;
    }
    &:hover {
       background: #E03A47;
@@ -71,5 +73,70 @@ h1 {
       height: 55px;
       background-size: 100%;
       margin: 0 auto;
+   }
+}
+
+.authentification {
+   margin-top: 70px;
+   h2 {
+      color: #FF5A51;
+      font-family: 'Montserrat', Arial, sans-serif;
+      text-align: center;
+      font-size: 14px;
+      text-transform: uppercase;
+   }
+   a {
+      color: #FF5A51;
+   }
+   #terms {
+      width: 90%;
+      text-align: center;
+      font-size: 10px;
+      color: #999;
+      margin: 20px auto;
+      span {
+         text-decoration: underline;
+         color: #FF5A51;
+         cursor: pointer;
+      }
+   }
+   #not-member,
+   #still-have-account {
+      text-align: center;
+      margin: 20px 0 10px 0;
+      color: #999;
+      font-size: 12px;
+   }
+   input[type="text"],
+   input[type="password"],
+   input[type="email"] {
+      border: 1px solid #ccc;
+      &:hover,
+      &:focus {
+         box-shadow: none;
+         border: 1px solid #999;
+      }
+   }
+   .btn-submit {
+      margin: 0 auto;
+   }
+}
+
+#sidebar {
+   padding: 0;
+   background-color: #0D0B00;
+   height: auto;
+   overflow: auto;
+
+   #user-infos {
+      .gravatar {
+         padding-top: 20px;
+         img {
+            width: 70px;
+            border-radius: 100%;
+            margin: 0 auto;
+            display: block;
+         }
+      }
    }
 }

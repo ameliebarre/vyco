@@ -12,18 +12,30 @@
 </head>
 <body>
 
-   <%
-      if logged_in?
-         render 'layouts/header'
-      else
-   %>
+   <% if user_signed_in? %>
+      <header id="main-header">
+         <%= content_tag :span, "Vyco", :class => "logo" %>
+         <p>Hello <%= current_user.email %> - <%= link_to('Déconnexion', destroy_user_session_path, :method => :delete) %>
+      </header>
+   <% else %>
       <div id="login-header">
          <%= content_tag :span, "Vyco", :class => "logo" %>
       </div>
    <% end %>
 
    <div class="container-fluid wrapper">
-      <%= yield %>
+      <div class="row">
+         <div id="sidebar" class="col-md-3 col-sm-3 col-xs-5">
+            <div id="user-infos">
+               <div class="gravatar"><%= image_tag gravatar_url(current_user) %></div>
+               <span class="email-user-info"><%= current_user.email %></span>
+            </div>
+         </div>
+
+         <div class="col-md-9 col-sm-9 col-xs-7">
+            <%= yield %>
+         </div>
+      </div>
    </div>
 
 </body>

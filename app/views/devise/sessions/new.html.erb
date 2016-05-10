@@ -1,0 +1,19 @@
+<div id="signin-section" class="authentification row">
+   <div class="col-md-4 col-sm-6 col-xs-8 col-md-offset-4 col-sm-offset-3 col-xs-offset-2">
+      <h2>Log in</h2>
+
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :email, required: false, autofocus: true %>
+          <%= f.input :password, required: false %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Log in", class: "btn btn-submit" %>
+        </div>
+      <% end %>
+
+      <p id="not-member">Pas encore membre ? <span><%= render "devise/shared/links" %></span></p>
+   </div>
+</div>
