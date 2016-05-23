@@ -13,9 +13,11 @@
 <body>
 
    <% if user_signed_in? %>
-      <header id="main-header">
-         <%= content_tag :span, "Vyco", :class => "logo" %>
-         <p>Hello <%= current_user.email %> - <%= link_to('Déconnexion', destroy_user_session_path, :method => :delete) %>
+      <header id="main-header" class="container-fluid">
+         <div class="row">
+            <div class="col-md-9"><%= content_tag :span, "Vyco", :class => "logo" %></div>
+            <div id="user-informations" class="col-md-3">Hello <%= current_user.email %> <%= link_to('Déconnexion', destroy_user_session_path, :method => :delete, :class => "logout") %>
+         </div>
       </header>
    <% else %>
       <div id="login-header">
@@ -25,14 +27,30 @@
 
    <div class="container-fluid wrapper">
       <div class="row">
+         <% if user_signed_in? %>
          <div id="sidebar" class="col-md-3 col-sm-3 col-xs-5">
             <div id="user-infos">
                <div class="gravatar"><%= image_tag gravatar_url(current_user) %></div>
-               <span class="email-user-info"><%= current_user.email %></span>
             </div>
+            <div id="sidebar-nav">
+               <section id="music">
+                  <h3>Musique</h3>
+                  <p>Artistes</p>
+                  <p>Albums</p>
+               </section>
+               <section id="playlists">
+                  <h3>Playlists</h3>
+                  <%= link_to 'Nouvelle playlist', new_playlist_path %>
+               </section>
+            </div><!-- #sidebar-nav -->
          </div>
+         <% end %>
 
+         <% if user_signed_in? %>
          <div class="col-md-9 col-sm-9 col-xs-7">
+         <% else %>
+            <div class="col-md-12">
+         <% end %>
             <%= yield %>
          </div>
       </div>

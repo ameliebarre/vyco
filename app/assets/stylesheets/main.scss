@@ -44,6 +44,7 @@ h1 {
 #main-header {
    width: 100%;
    background: #FF5A51;
+   padding: 10px;
    .logo {
       background: url("/assets/logo.svg") center center no-repeat;
       width: 114px;
@@ -58,6 +59,19 @@ h1 {
          text-transform: uppercase;
          font-size: 11px;
          color: #FFF;
+      }
+   }
+   #user-informations {
+      color: #fff;
+      padding-top: 10px;
+      .logout {
+         background: url("/assets/logout.svg") center center no-repeat;
+         background-size: 100%;
+         display: inline-block;
+         text-indent: -99999px;
+         width: 20px;
+         height: 20px;
+         margin-left: 20px;
       }
    }
 }
@@ -88,18 +102,6 @@ h1 {
    a {
       color: #FF5A51;
    }
-   #terms {
-      width: 90%;
-      text-align: center;
-      font-size: 10px;
-      color: #999;
-      margin: 20px auto;
-      span {
-         text-decoration: underline;
-         color: #FF5A51;
-         cursor: pointer;
-      }
-   }
    #not-member,
    #still-have-account {
       text-align: center;
@@ -123,10 +125,45 @@ h1 {
 }
 
 #sidebar {
-   padding: 0;
-   background-color: #0D0B00;
+   padding: 0 0 0 15px;
+   background-color: #202122;
    height: auto;
    overflow: auto;
+
+   #sidebar-nav {
+      color: #fff;
+      margin-top: 40px;
+      section {
+         margin-bottom: 20px;
+         h3 {
+            font-size: 13px;
+            text-transform: uppercase;
+            margin: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+         }
+         p {
+            color: #474747;
+            margin: 0;
+         }
+         a {
+            background-color: #FF5A51;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 11px;
+            text-transform: uppercase;
+            width: 95%;
+            display: block;
+            color: #fff;
+            padding: 3px 5px;
+            margin-top: 5px;
+            transition: all ease 300ms;
+            &:hover {
+               text-decoration: none;
+               padding-left: 20px;
+            }
+         }
+      }
+   }
 
    #user-infos {
       .gravatar {
