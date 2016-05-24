@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :playlists
   resources :tracks
   resources :albums
-  root 'home#index'
+  root 'index#index'
   get 'index' => 'home#index'
 end

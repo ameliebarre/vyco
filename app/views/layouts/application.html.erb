@@ -40,7 +40,15 @@
                </section>
                <section id="playlists">
                   <h3>Playlists</h3>
-                  <%= link_to 'Nouvelle playlist', new_playlist_path %>
+                  <div id="new-playlist">
+                     <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                     <%= link_to 'Nouvelle playlist', new_playlist_path %>
+                  </div>
+                  <% if @playlists %>
+                     <% @playlists.each do |playlist| %>
+                        <p><i class="fa fa-music" aria-hidden="true"></i> <%= playlist.name %></p>
+                     <% end %>
+                  <% end %>
                </section>
             </div><!-- #sidebar-nav -->
          </div>
