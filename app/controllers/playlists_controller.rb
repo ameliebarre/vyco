@@ -2,8 +2,6 @@ class PlaylistsController < ApplicationController
    before_action :authenticate_user!
    before_action :set_playlist, only: [:show, :edit, :update, :destroy]
 
-
-
    def index
       @playlists = Playlist.all
    end
@@ -46,7 +44,7 @@ class PlaylistsController < ApplicationController
       def set_playlist
          @playlist = Playlist.find(params[:id])
       end
-      
+
       def playlist_params
          params.require(:playlist).permit(:name, :id_user)
       end
