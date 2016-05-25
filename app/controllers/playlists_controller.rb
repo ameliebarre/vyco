@@ -15,6 +15,7 @@ class PlaylistsController < ApplicationController
    end
 
    def edit
+      @playlists = Playlist.all
    end
 
    def create

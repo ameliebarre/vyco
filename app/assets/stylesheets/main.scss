@@ -57,17 +57,16 @@ h1 {
       height: 39px;
       background-size: 100%;
    }
-   .login-section {
-      a {
-         font-family: 'Montserrat', Arial, sans-serif;
-         text-transform: uppercase;
-         font-size: 11px;
-         color: #FFF;
-      }
+   a {
+      color: #fff;
+      margin-top: 10px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      text-transform: uppercase;
+      font-size: 12px;
+      display: inline-block;
    }
    #user-informations {
       color: #fff;
-      padding-top: 10px;
       .logout {
          background: url("/assets/logout.svg") center center no-repeat;
          background-size: 100%;

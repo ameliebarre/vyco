@@ -10,11 +10,12 @@ class ArtistsController < ApplicationController
   end
 
   def new
-     @playlist = Playlist.new
+     @playlists = Playlist.all
      @artist = Artist.new
   end
 
   def edit
+     @playlists = Playlist.all
   end
 
   def create

@@ -15,13 +15,6 @@ class ApplicationController < ActionController::Base
   end
 
   def create
-     @playlist = Playlist.new(playlist_params)
-
-     if @playlist.save
-        redirect_to @playlist, notice: 'Playlist was successfully created.'
-     else
-        render :new
-     end
   end
 
   private

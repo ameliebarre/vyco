@@ -15,7 +15,18 @@
    <% if user_signed_in? %>
       <header id="main-header" class="container-fluid">
          <div class="row">
-            <div class="col-md-9"><%= content_tag :span, "Vyco", :class => "logo" %></div>
+            <div class="col-md-9">
+               <div class="col-md-2">
+                  <%= content_tag :span, "Vyco", :class => "logo" %>
+               </div>
+               <div class="col-md-10">
+                  <ul>
+                     <li class="col-md-3"><%= link_to 'Ajouter un artiste', new_artist_path %></li>
+                     <li class="col-md-3"><%= link_to 'Ajouter une playlist', new_playlist_path %></li>
+                     <li class="col-md-3"><%= link_to 'Ajouter une track', new_track_path %></li>
+                  </ul>
+               </div>
+            </div>
             <div id="user-informations" class="col-md-3">Hello <%= current_user.email %> <%= link_to('Déconnexion', destroy_user_session_path, :method => :delete, :class => "logout") %>
          </div>
       </header>
