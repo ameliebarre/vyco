@@ -1,55 +1,45 @@
 class TracksController < ApplicationController
-  before_action :set_track, only: [:show, :edit, :update, :destroy]
+   authorize_resource
+   before_action :set_track, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @playlists = Playlist.all
-    @tracks = Track.all
-  end
+   def index
+      @playlists = Playlist.all
+      @tracks = Track.all
+   end
 
-  def show
-  end
+   def show
+   end
 
-  def new
-    @playlists = Playlist.all
-    @track = Track.new
-  end
+   def new
+      @playlists = Playlist.all
+      @track = Track.new
+   end
 
-  def edit
+   def edit
      @playlists = Playlist.all
   end
 
-  def create
-    @track = Track.new(track_params)
+   def create
+      @track = Track.new(track_params)
 
-    respond_to do |format|
       if @track.save
-        format.html { redirect_to @track, notice: 'Track was successfully created.' }
-        format.json { render :show, status: :created, location: @track }
+         redirect_to @track, notice: 'Track was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @track.errors, status: :unprocessable_entity }
+         render :new
       end
-    end
-  end
+   end
 
   def update
-    respond_to do |format|
       if @track.update(track_params)
-        format.html { redirect_to @track, notice: 'Track was successfully updated.' }
-        format.json { render :show, status: :ok, location: @track }
+         redirect_to @track, notice: 'Track was successfully updated.'
       else
-        format.html { render :edit }
-        format.json { render json: @track.errors, status: :unprocessable_entity }
+         render :edit
       end
-    end
   end
 
   def destroy
-    @track.destroy
-    respond_to do |format|
-      format.html { redirect_to tracks_url, notice: 'Track was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+     @track.destroy
+     redirect_to tracks_url, notice: 'Track was successfully destroyed.'
   end
 
   private

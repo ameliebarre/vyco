@@ -21,13 +21,19 @@
                </div>
                <div class="col-md-10">
                   <ul>
-                     <li class="col-md-3"><%= link_to 'Ajouter un artiste', new_artist_path %></li>
-                     <li class="col-md-3"><%= link_to 'Ajouter une playlist', new_playlist_path %></li>
-                     <li class="col-md-3"><%= link_to 'Ajouter une track', new_track_path %></li>
+                     <% if can? :create, Artist %>
+                        <li class="col-md-3"><%= link_to 'Ajouter un artiste', new_artist_path %></li>
+                     <% end %>
+                     <% if can? :create, Playlist %>
+                        <li class="col-md-3"><%= link_to 'Ajouter une playlist', new_playlist_path %></li>
+                     <% end %>
+                     <% if can? :create, Track %>
+                        <li class="col-md-3"><%= link_to 'Ajouter un track', new_track_path %></li>
+                     <% end %>
                   </ul>
                </div>
             </div>
-            <div id="user-informations" class="col-md-3">Hello <%= current_user.email %> <%= link_to('Déconnexion', destroy_user_session_path, :method => :delete, :class => "logout") %>
+            <div id="user-informations" class="col-md-3"><span class="gravatar"><%= image_tag gravatar_url(current_user) %></span> Hello <%= current_user.email %> <%= link_to('Déconnexion', destroy_user_session_path, :method => :delete, :class => "logout") %>
          </div>
       </header>
    <% else %>
@@ -40,17 +46,14 @@
       <div class="row">
          <% if user_signed_in? %>
          <div id="sidebar" class="col-md-3 col-sm-3 col-xs-5">
-            <div id="user-infos">
-               <div class="gravatar"><%= image_tag gravatar_url(current_user) %></div>
-            </div>
             <div id="sidebar-nav">
                <section id="music">
-                  <h3>Musique</h3>
+                  <h3>Ma musique</h3>
                   <p>Artistes</p>
                   <p>Albums</p>
                </section>
                <section id="playlists">
-                  <h3>Playlists</h3>
+                  <h3>Mes playlists</h3>
                   <div id="new-playlist">
                      <i class="fa fa-plus-circle" aria-hidden="true"></i>
                      <%= link_to 'Nouvelle playlist', new_playlist_path %>
@@ -66,7 +69,7 @@
          <% end %>
 
          <% if user_signed_in? %>
-         <div class="col-md-9 col-sm-9 col-xs-7">
+         <div class="col-md-9 col-sm-9 col-xs-7 col-md-offset-3">
          <% else %>
             <div class="col-md-12">
          <% end %>

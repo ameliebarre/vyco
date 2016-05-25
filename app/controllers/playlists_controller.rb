@@ -1,4 +1,5 @@
 class PlaylistsController < ApplicationController
+   authorize_resource
    before_action :authenticate_user!
    before_action :set_playlist, only: [:show, :edit, :update, :destroy]
 
@@ -19,6 +20,7 @@ class PlaylistsController < ApplicationController
    end
 
    def create
+      playlist_params[:id_user] = current_user.id
       @playlist = Playlist.new(playlist_params)
 
       if @playlist.save

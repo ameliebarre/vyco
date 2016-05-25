@@ -1,19 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<div class="col-md-2">
-   <%= link_to 'New Artist', new_artist_path, class: 'add-new-artist add' %>
-</div>
+<% if can? :create, Artist %>
+   <div class="col-md-2">
+      <%= link_to 'New Artist', new_artist_path, class: 'add-new-artist add' %>
+   </div>
+<% end %>
 
 <div id="artists-list">
    <% @artists.each do |artist| %>
       <div class="artist col-md-3">
          <%= artist.avatar.exists? ? image_tag(artist.avatar.url(:medium)) : '&empty;'.html_safe %>
-         <p><%= artist.name %></p>
-         <div class="edit-section">
-            <%= link_to 'Show', artist %>
-            <%= link_to 'Edit', edit_artist_path(artist) %>
-            <%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %>
-         </div>
+         <p class="artist-name"><%= artist.name %></p>
+         <% if can? :create, Artist %>
+            <div class="edit-section">
+               <%= link_to 'Voir', artist %>
+               <%= link_to 'Modifier', edit_artist_path(artist) %>
+               <%= link_to 'Supprimer', artist, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+         <% end %>
       </div>
    <% end %>
 </div>

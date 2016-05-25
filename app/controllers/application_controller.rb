@@ -3,6 +3,15 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  rescue_from CanCan::AccessDenied do |exception|
+     flash[:error] = exception.message
+     if request.env['HTTP_REFERER'].present?
+        redirect_to :back
+     else
+        redirect_to root_path
+     end
+  end
+
   def index
      @playlists = Playlist.all
   end

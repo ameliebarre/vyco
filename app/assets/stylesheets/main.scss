@@ -3,8 +3,15 @@
    padding: 0;
 }
 
+body {
+   background-color: #191a1a;
+}
+
 a {
    text-decoration: none;
+   &:hover {
+      text-decoration: none;
+   }
 }
 
 li {
@@ -64,9 +71,19 @@ h1 {
       text-transform: uppercase;
       font-size: 12px;
       display: inline-block;
+      &:hover {
+         color: #202122;
+         font-weight: bold;
+      }
    }
    #user-informations {
       color: #fff;
+      .gravatar {
+         img {
+            width: 30px;
+            border-radius: 100%;
+         }
+      }
       .logout {
          background: url("/assets/logout.svg") center center no-repeat;
          background-size: 100%;
@@ -130,9 +147,13 @@ h1 {
 #sidebar {
    padding: 0 0 0 15px;
    background-color: #202122;
-   height: auto;
+   height: 100%;
    overflow: auto;
-
+   position: absolute;
+   -moz-box-shadow: 2px 2px 1px 0px #111;
+   -webkit-box-shadow: 2px 2px 1px 0px #111;
+   -o-box-shadow: 2px 2px 1px 0px #111;
+   box-shadow: 2px 2px 1px 0px #111;
    #sidebar-nav {
       color: #fff;
       margin-top: 40px;
@@ -141,7 +162,7 @@ h1 {
          #new-playlist {
             background-color: #FF5A51;
             padding: 3px 5px;
-            margin-top: 5px;
+            margin: 5px 0;
             width: 95%;
             a {
                font-family: 'Montserrat', Arial, sans-serif;
@@ -178,6 +199,42 @@ h1 {
             border-radius: 100%;
             margin: 0 auto;
             display: block;
+         }
+      }
+   }
+}
+
+/* Section d'ajout */
+.add-section {
+   background: #fff;
+   padding: 15px;
+   margin-top: 150px;
+   h2 {
+      color: #FF5A51;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 15px;
+      margin: 0 0 10px 0;
+      text-transform: uppercase;
+   }
+   label {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+   }
+   .add-field {
+      input {
+         border-radius: none;
+         color: #000;
+         font-family: 'Montserrat', Arial, sans-serif;
+         font-size: 11px;
+         text-transform: uppercase;
+         &:hover {
+            border: 1px solid #999;
+            box-shadow: none;
+         }
+         &:focus {
+            box-shadow: none;
+            border: 1px solid #999;
          }
       }
    }

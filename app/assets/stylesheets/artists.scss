@@ -12,10 +12,20 @@
          font-size: 12px;
          margin: 5px 0 0 0;
       }
+      .artist-name {
+         background: #fff;
+         margin: 0;
+         padding: 10px;
+         width: 100%;
+      }
       .edit-section {
+         background: #FF5A51;
+         padding: 5px 10px;
+         width: 100%;
          a {
-            color: #FF5A51;
+            color: #fff;
             font-size: 11px;
+            margin-right: 10px;
          }
       }
    }
@@ -23,4 +33,11 @@
 
 .add-new-artist {
    margin-bottom: 20px;
+}
+
+/* Single */
+.single-artist-page {
+      img {
+         border-radius: 100%;
+      }
 }

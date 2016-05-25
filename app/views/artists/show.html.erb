@@ -1,9 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @artist.name %>
-</p>
+<div class="single-artist-page col-md-11 col-md-offset-1">
+   <% if @artist.avatar.exists? %>
+      <div class="artist-avatar col-md-4"><%= image_tag(@artist.avatar.url(:medium)) %></div>
+   <% end %>
 
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
+   <div class="artist-informations col-md-8">
+      <span>Artiste</span>
+      <h2><%= @artist.name %></h2>
+   </div>
+
+   <% if can? :update, @artist %>
+      <%= link_to 'Edit', edit_artist_path(@artist) %>
+   <% end %>
+
+   <%= link_to 'Back', artists_path %>
+</div>

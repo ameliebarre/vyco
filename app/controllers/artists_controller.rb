@@ -1,15 +1,16 @@
 class ArtistsController < ApplicationController
-  before_action :set_artist, only: [:show, :edit, :update, :destroy]
+   authorize_resource
+   before_action :set_artist, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @playlists = Playlist.all
-    @artists = Artist.all
-  end
+   def index
+      @playlists = Playlist.all
+      @artists = Artist.all
+   end
 
-  def show
-  end
+   def show
+   end
 
-  def new
+   def new
      @playlists = Playlist.all
      @artist = Artist.new
   end

@@ -31,6 +31,8 @@ gem 'bcrypt', '3.1.7'
 gem 'devise'
 gem 'font-awesome-sass'
 gem 'paperclip'
+gem 'cancan'
+gem 'rolify'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
