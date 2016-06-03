@@ -3,8 +3,12 @@
    padding: 0;
 }
 
-body {
+#main-page {
    background-color: #191a1a;
+}
+
+#login-page {
+   background-color: #fff;
 }
 
 a {
@@ -49,6 +53,15 @@ h1 {
       color: #fff;
       outline: none;
       text-decoration: none;
+   }
+}
+
+/* Bouton retour */
+.back-button {
+   color: #FF5A51;
+   margin-top: 20px;
+   a {
+      color: #FF5A51;
    }
 }
 
@@ -209,7 +222,7 @@ h1 {
    background: #fff;
    padding: 15px;
    margin-top: 150px;
-   h2 {
+   h1 {
       color: #FF5A51;
       font-family: 'Montserrat', Arial, sans-serif;
       font-size: 15px;
@@ -228,13 +241,11 @@ h1 {
          font-family: 'Montserrat', Arial, sans-serif;
          font-size: 11px;
          text-transform: uppercase;
-         &:hover {
-            border: 1px solid #999;
-            box-shadow: none;
-         }
+         &:hover,
          &:focus {
-            box-shadow: none;
+            background: #fff;
             border: 1px solid #999;
+            box-shadow: none;
          }
       }
    }

@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20160525154300) do
     t.string   "name"
     t.string   "cover"
     t.date     "date_release"
-    t.string   "style"
     t.integer  "id_artist"
+    t.integer  "id_style"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

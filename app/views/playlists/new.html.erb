@@ -1,5 +1,9 @@
-<h1>New Playlist</h1>
+<div class="back-button col-md-2">
+   <i class="fa fa-arrow-left" aria-hidden="true"></i>
+   <%= link_to 'Retour', playlists_path %>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', playlists_path %>
+<div class="add-section col-md-10 col-md-offset-1">
+   <h1>Ajouter une playlist</h1>
+   <%= render 'form' %>
+</div>
