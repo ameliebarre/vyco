@@ -5,7 +5,6 @@ class CreateAlbums < ActiveRecord::Migration
       t.string :cover
       t.date :date_release
       t.integer :id_artist
-      t.integer :id_style
 
       t.timestamps null: false
     end

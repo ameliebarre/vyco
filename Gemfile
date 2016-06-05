@@ -33,6 +33,7 @@ gem 'font-awesome-sass'
 gem 'paperclip'
 gem 'cancan'
 gem 'rolify'
+gem 'jquery-ui-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

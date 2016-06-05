@@ -12,6 +12,9 @@
  *
  *= require_self
  *= require_tree .
+ *= require jquery-ui
+ *= require jquery-ui/core
+ *= require jquery-ui/theme
  */
  @import "font-awesome-sprockets";
  @import "font-awesome";

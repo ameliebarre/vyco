@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<% if @album.avatar.exists? %>
+   <div class="album-avatar col-md-4"><%= image_tag(@album.avatar.url(:medium)) %></div>
+<% end %>
+
 <p>
   <strong>Name:</strong>
   <%= @album.name %>
@@ -12,7 +16,7 @@
 
 <p>
   <strong>Style:</strong>
-  <%= @album.style %>
+  <%= @album.style.name %>
 </p>
 
 <p>

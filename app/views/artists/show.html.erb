@@ -10,6 +10,10 @@
       <h2><%= @artist.name %></h2>
    </div>
 
+   <div class="artist-description col-md-8">
+      <p><%= @artist.description %></p>
+   </div>
+
    <% if can? :update, @artist %>
       <%= link_to 'Edit', edit_artist_path(@artist) %>
    <% end %>

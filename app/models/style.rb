@@ -1,3 +1,3 @@
 class Style < ActiveRecord::Base
-   belongs_to :album
+   has_many :album
 end
