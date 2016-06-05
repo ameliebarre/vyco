@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605175131) do
+ActiveRecord::Schema.define(version: 20160605182357) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name"
@@ -25,8 +25,10 @@ ActiveRecord::Schema.define(version: 20160605175131) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "artist_id"
   end
 
+  add_index "albums", ["artist_id"], name: "index_albums_on_artist_id"
   add_index "albums", ["style_id"], name: "index_albums_on_style_id"
 
   create_table "artists", force: :cascade do |t|
@@ -59,7 +61,11 @@ ActiveRecord::Schema.define(version: 20160605175131) do
   add_index "roles", ["name"], name: "index_roles_on_name"
 
   create_table "styles", force: :cascade do |t|
-    t.string "name"
+    t.string   "name"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "tracks", force: :cascade do |t|

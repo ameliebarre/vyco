@@ -8,7 +8,7 @@
       <th>Name</th>
       <th>Date release</th>
       <th>Style</th>
-      <th>Id artist</th>
+      <th>Artiste</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,8 +18,8 @@
       <tr>
         <td><%= album.name %></td>
         <td><%= album.date_release %></td>
-        <td><%= album.style %></td>
-        <td><%= album.id_artist %></td>
+        <td><%= album.style.name %></td>
+        <td><%= album.artist.name %></td>
         <td><%= link_to 'Show', album %></td>
         <td><%= link_to 'Edit', edit_album_path(album) %></td>
         <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
