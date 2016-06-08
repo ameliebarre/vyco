@@ -9,11 +9,13 @@ class Ability
          can :manage, Playlist
          can :manage, Track
          can :manage, Album
+         can :manage, Style
       else
          can :read, Artist
          can :read, Playlist
          can :read, Track
          can :read, Album
+         can :read, Style
       end
    end
 end

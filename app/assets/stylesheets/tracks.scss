@@ -1,3 +1,39 @@
-// Place all the styles related to the Tracks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#tracks-list {
+   clear: both;
+   display: block;
+
+   .track {
+      padding: 5px;
+      overflow: auto;
+      &:nth-child(even) {
+         background: #2c2c2c;
+      }
+      &:nth-child(odd) {
+         background: #272727;
+      }
+      .play-button {
+         background: url("/assets/play_button.svg") center center no-repeat;
+         width: 30px;
+         text-indent: -99999px;
+         display: block;
+         height: 30px;
+         background-size: 100%;
+      }
+      p {
+         color: #fff;
+         margin: 5px 0 0 0;
+         text-align: center;
+      }
+      a {
+         color: #FF5A51;
+         &:hover {
+            color: #E03A47;
+         }
+      }
+   }
+
+}
+
+.add-new-track {
+   margin-bottom: 20px;
+}

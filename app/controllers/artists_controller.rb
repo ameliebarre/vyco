@@ -5,6 +5,11 @@ class ArtistsController < ApplicationController
    def index
       @playlists = Playlist.all
       @artists = Artist.all
+
+      if params[:artists]
+         @search_value = search_params[:search]
+         @artists = @artists.search(@search_value)
+      end
    end
 
    def show
@@ -48,6 +53,10 @@ class ArtistsController < ApplicationController
     end
 
     def artist_params
-      params.require(:artist).permit(:name, :firstname, :avatar, :description)
+      params.require(:artist).permit(:name, :firstname, :avatar, :description, album_ids: [])
+    end
+
+    def search_params
+      params.require(:artists).permit(:search)
     end
 end

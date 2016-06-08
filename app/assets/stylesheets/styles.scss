@@ -1,0 +1,37 @@
+#styles-list {
+   clear: both;
+   display: block;
+
+   .style {
+      .style-avatar {
+         position: relative;
+         img {
+            width: 100%;
+         }
+      }
+      .style-name {
+         color: #fff;
+         margin: 0;
+         font-family: 'Montserrat', Arial, sans-serif;
+         text-transform: uppercase;
+         font-size: 25px;
+         position: absolute;
+         top: 43%;
+         left: 30%;
+      }
+      .edit-section {
+         background: #FF5A51;
+         padding: 5px 10px;
+         width: 100%;
+         a {
+            color: #fff;
+            font-size: 11px;
+            margin-right: 10px;
+         }
+      }
+   }
+}
+
+.add-new-style {
+   margin-bottom: 20px;
+}

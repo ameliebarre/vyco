@@ -26,16 +26,19 @@
                <div class="col-md-10">
                   <ul>
                      <% if can? :create, Artist %>
-                        <li class="col-md-3"><%= link_to 'Ajouter un artiste', new_artist_path %></li>
+                        <li class="col-md-2"><%= link_to 'Ajouter un artiste', new_artist_path %></li>
                      <% end %>
                      <% if can? :create, Playlist %>
-                        <li class="col-md-3"><%= link_to 'Ajouter une playlist', new_playlist_path %></li>
+                        <li class="col-md-2"><%= link_to 'Ajouter une playlist', new_playlist_path %></li>
                      <% end %>
                      <% if can? :create, Track %>
-                        <li class="col-md-3"><%= link_to 'Ajouter un track', new_track_path %></li>
+                        <li class="col-md-2"><%= link_to 'Ajouter un track', new_track_path %></li>
                      <% end %>
                      <% if can? :create, Album %>
-                        <li class="col-md-3"><%= link_to 'Ajouter un album', new_album_path %></li>
+                        <li class="col-md-2"><%= link_to 'Ajouter un album', new_album_path %></li>
+                     <% end %>
+                     <% if can? :create, Style %>
+                        <li class="col-md-2"><%= link_to 'Ajouter un style', new_style_path %></li>
                      <% end %>
                   </ul>
                </div>
@@ -54,11 +57,26 @@
          <% if user_signed_in? %>
          <div id="sidebar" class="col-md-3 col-sm-3 col-xs-5">
             <div id="sidebar-nav">
+               <section id="search-bar">
+                  <%= simple_form_for :artists, url: artists_path, method: :get, html: { class: 'form-inline text-right' } do |f| %>
+                     <%= f.input_field :search, label: false,
+                                                placeholder: 'Rechercher',
+                                                class: 'form-control',
+                                                value: @search_value %>
+                        <span class="input-group-btn">
+                           <%= button_tag type: :submit, class: 'btn btn-submit' do %>
+                              <span class="glyphicon glyphicon-search" aria-hidden="true">
+                        </span>
+                     <% end %>
+                  <% end %>
+               </section>
+
                <section id="music">
                   <h3>Ma musique</h3>
                   <p>Artistes</p>
                   <p>Albums</p>
                </section>
+
                <section id="playlists">
                   <h3>Mes playlists</h3>
                   <div id="new-playlist">
@@ -76,7 +94,7 @@
          <% end %>
 
          <% if user_signed_in? %>
-            <div class="col-md-9 col-sm-9 col-xs-7 col-md-offset-3">
+            <div class="col-md-9 col-sm-9 col-xs-7 col-md-offset-3 col-sm-offset-3 col-xs-offset-5">
                <%= yield %>
             </div>
          <% else %>

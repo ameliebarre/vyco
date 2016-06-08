@@ -1,9 +1,10 @@
 class StylesController < ApplicationController
-
+   authorize_resource
    before_action :authenticate_user!
    before_action :set_style, only: [:show, :edit, :update, :destroy]
 
    def index
+      @playlists = Playlist.all
       @styles = Style.all
    end
 
@@ -11,10 +12,12 @@ class StylesController < ApplicationController
    end
 
    def new
+      @playlists = Playlist.all
       @style = Style.new
    end
 
    def edit
+      @playlists = Playlist.all
    end
 
    def create

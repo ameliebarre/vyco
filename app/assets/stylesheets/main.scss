@@ -3,6 +3,11 @@
    padding: 0;
 }
 
+html, body {
+   height:100%;
+   width: 100%;
+}
+
 #main-page {
    background-color: #191a1a;
 }
@@ -41,7 +46,7 @@ h1 {
    font-family: 'Montserrat', Arial, sans-serif;
    text-transform: uppercase;
    font-size: 11px;
-   width: 150px;
+   width: 225px;
    display: block;
    margin: 20px 0 30px 0;
    &:focus {
@@ -80,11 +85,12 @@ h1 {
    }
    a {
       color: #fff;
-      margin-top: 10px;
+      margin-top: 6px;
       font-family: 'Montserrat', Arial, sans-serif;
       text-transform: uppercase;
-      font-size: 12px;
+      font-size: 10px;
       display: inline-block;
+      text-align: center;
       &:hover {
          color: #202122;
          font-weight: bold;
@@ -222,7 +228,7 @@ h1 {
 .add-section {
    background: #fff;
    padding: 15px;
-   margin-top: 150px;
+   margin-top: 90px;
    h1 {
       color: #FF5A51;
       font-family: 'Montserrat', Arial, sans-serif;
@@ -247,6 +253,37 @@ h1 {
             background: #fff;
             border: 1px solid #999;
             box-shadow: none;
+         }
+      }
+      textarea {
+         border-radius: none;
+         color: #000;
+         height: 100px;
+         text-shadow: none;
+         font-family: Arial, sans-serif;
+         font-size: 11px;
+         resize: none;
+         &:hover,
+         &:focus {
+            background: #fff;
+            border: 1px solid #999;
+            box-shadow: none;
+         }
+      }
+      #datepicker {
+         display: block;
+         margin-bottom: 20px;
+         width: 120px;
+         border-radius: 3px;
+         border: 1px solid #ccc;
+         height: 30px;
+         &:hover,
+         &:focus {
+            background: #fff;
+            border: 1px solid #999;
+            box-shadow: none;
+            outline: none;
+            padding-left: 5px;
          }
       }
    }

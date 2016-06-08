@@ -33,7 +33,9 @@ gem 'font-awesome-sass'
 gem 'paperclip'
 gem 'cancan'
 gem 'rolify'
-gem 'jquery-ui-rails'
+gem 'friendly_id'
+gem 'search_cop'
+gem 'bootstrap-datepicker-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

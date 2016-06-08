@@ -1,28 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Styles</h1>
+<% if can? :create, Style %>
+   <div class="col-md-2">
+      <%= link_to 'Nouveau style musical', new_style_path, class: 'add-new-style add' %>
+   </div>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @styles.each do |style| %>
-      <tr>
-        <td><%= style.name %></td>
-        <%= style.avatar.exists? ? image_tag(style.avatar.url(:medium)) : '&empty;'.html_safe %>
-        <td><%= link_to 'Show', style %></td>
-        <td><%= link_to 'Edit', edit_style_path(style) %></td>
-        <td><%= link_to 'Destroy', style, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'Nouveau style musical', new_style_path %>
+<div id="styles-list">
+   <% @styles.each do |style| %>
+      <div class="style col-md-3">
+         <div class="style-avatar">
+            <%= style.avatar.exists? ? image_tag(style.avatar.url(:medium)) : '&empty;'.html_safe %>
+            <p class="style-name"><%= style.name %></p>
+         </div>
+         <% if can? :create, Style %>
+            <div class="edit-section">
+               <%= link_to 'Modifier', edit_style_path(style) %>
+               <%= link_to 'Supprimer', style, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+         <% end %>
+      </div>
+   <% end %>
+</div>

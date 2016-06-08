@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605182357) do
+ActiveRecord::Schema.define(version: 20160607081846) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name"
@@ -26,10 +26,12 @@ ActiveRecord::Schema.define(version: 20160605182357) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer  "artist_id"
+    t.integer  "track_id"
   end
 
   add_index "albums", ["artist_id"], name: "index_albums_on_artist_id"
   add_index "albums", ["style_id"], name: "index_albums_on_style_id"
+  add_index "albums", ["track_id"], name: "index_albums_on_track_id"
 
   create_table "artists", force: :cascade do |t|
     t.string   "name"
@@ -40,7 +42,21 @@ ActiveRecord::Schema.define(version: 20160605182357) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "description"
+    t.string   "slug"
   end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "playlists", force: :cascade do |t|
     t.string   "name"
@@ -78,7 +94,10 @@ ActiveRecord::Schema.define(version: 20160605182357) do
     t.string   "track_file_content_type"
     t.integer  "track_file_file_size"
     t.datetime "track_file_updated_at"
+    t.integer  "album_id"
   end
+
+  add_index "tracks", ["album_id"], name: "index_tracks_on_album_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

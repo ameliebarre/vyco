@@ -6,7 +6,6 @@
    <% end %>
 
    <div class="artist-informations col-md-8">
-      <span>Artiste</span>
       <h2><%= @artist.name %></h2>
    </div>
 
@@ -14,9 +13,19 @@
       <p><%= @artist.description %></p>
    </div>
 
-   <% if can? :update, @artist %>
-      <%= link_to 'Edit', edit_artist_path(@artist) %>
-   <% end %>
+   <div id="discography">
+      <%# Get all the artist's albums %>
+      <% @artist.albums.each do |album| %>
+         <%= image_tag(album.avatar(:medium)) %>
+         <%= album.name %>
+      <% end %>
+   </div>
 
-   <%= link_to 'Back', artists_path %>
+   <div class="edit-section col-md-4">
+      <% if can? :update, @artist %>
+         <%= link_to 'Edit', edit_artist_path(@artist) %>
+      <% end %>
+      |
+      <%= link_to 'Back', artists_path %>
+   </div>
 </div>
