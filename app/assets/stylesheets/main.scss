@@ -34,6 +34,23 @@ h1 {
    color: #F32200;
 }
 
+/* Search Bar */
+.search-bar {
+   input {
+      margin-bottom: 20px;
+      border: 1px solid #fff;
+      border-radius: 12px;
+      height: 25px;
+      font: 300 12px Arial, sans-serif;
+      padding: 5px;
+      width: 225px !important;
+      &:focus {
+         box-shadow: none;
+         border: 1px solid #fff;
+      }
+   }
+}
+
 /* Bouton submit */
 .btn-submit,
 .add {
@@ -71,6 +88,27 @@ h1 {
    }
 }
 
+/* Bouton d'action - Single page */
+.actions {
+   margin-bottom: 20px;
+   a {
+      background: #FF5A51;
+      color: #fff;
+      width: 60px;
+      border-radius: 12px;
+      padding: 3px 5px;
+      display: inline-block;
+      text-align: center;
+      &:hover {
+         background: #E03A47;
+         color: #fff;
+         outline: none;
+         text-decoration: none;
+      }
+   }
+}
+
+/* Header */
 #main-header {
    width: 100%;
    background: #FF5A51;
@@ -204,9 +242,13 @@ h1 {
             margin: 0;
             font-family: 'Montserrat', Arial, sans-serif;
          }
-         p {
+         p, a {
             color: #fff;
             margin: 0 0 0 10px;
+            transition: all ease 300ms;
+            &:hover {
+               padding-left: 10px;
+            }
          }
       }
    }

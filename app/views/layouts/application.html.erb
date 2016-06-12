@@ -57,18 +57,12 @@
          <% if user_signed_in? %>
          <div id="sidebar" class="col-md-3 col-sm-3 col-xs-5">
             <div id="sidebar-nav">
-               <section id="search-bar">
-                  <%= simple_form_for :artists, url: artists_path, method: :get, html: { class: 'form-inline text-right' } do |f| %>
-                     <%= f.input_field :search, label: false,
-                                                placeholder: 'Rechercher',
-                                                class: 'form-control',
-                                                value: @search_value %>
-                        <span class="input-group-btn">
-                           <%= button_tag type: :submit, class: 'btn btn-submit' do %>
-                              <span class="glyphicon glyphicon-search" aria-hidden="true">
-                        </span>
-                     <% end %>
-                  <% end %>
+
+               <section id="discover">
+                  <h3>Parcourir</h3>
+                  <p>Découvrir</p>
+                  <%= link_to 'Artistes', artists_path %>
+                  <p>Albums</p>
                </section>
 
                <section id="music">

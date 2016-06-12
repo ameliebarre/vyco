@@ -1,9 +1,9 @@
 class ArtistsController < ApplicationController
    authorize_resource
-   before_action :set_artist, only: [:show, :edit, :update, :destroy]
+   before_action :set_artist, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+   before_action :display_playlists
 
    def index
-      @playlists = Playlist.all
       @artists = Artist.all
 
       if params[:artists]
@@ -16,12 +16,10 @@ class ArtistsController < ApplicationController
    end
 
    def new
-     @playlists = Playlist.all
      @artist = Artist.new
   end
 
   def edit
-     @playlists = Playlist.all
   end
 
   def create
@@ -45,6 +43,19 @@ class ArtistsController < ApplicationController
   def destroy
     @artist.destroy
     redirect_to artists_url, notice: 'Artist was successfully destroyed.'
+  end
+
+  # Acts As Votable methods
+  # upvote_from user
+  def upvote
+     @artist.upvote_from current_user
+     redirect_to @artist
+  end
+
+  # downvote_from user
+  def downvote
+     @artist.downvote_from current_user
+     redirect_to @artist
   end
 
   private

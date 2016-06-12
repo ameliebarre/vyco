@@ -1,5 +1,7 @@
 class Track < ActiveRecord::Base
 
+   extend FriendlyId
+
    belongs_to :album
    belongs_to :playlist
 
@@ -10,5 +12,15 @@ class Track < ActiveRecord::Base
    #attributes: :track_file,
    #less_than: 5.megabytes
    do_not_validate_attachment_file_type :track_file
+
+   friendly_id :slug_candidates, use: [:slugged, :finders]
+
+   def slug_candidates
+      [ :name, [:id, :name] ]
+   end
+
+   def should_generate_new_friendly_id?
+      name_changed? || super
+   end
 
 end

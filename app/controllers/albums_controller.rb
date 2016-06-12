@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
    authorize_resource
    before_action :set_album, only: [:show, :edit, :update, :destroy]
+   before_action :display_playlists
 
    def index
       @albums = Album.all

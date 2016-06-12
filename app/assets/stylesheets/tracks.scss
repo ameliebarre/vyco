@@ -1,7 +1,7 @@
 #tracks-list {
    clear: both;
    display: block;
-
+   margin-top: 30px;
    .track {
       padding: 5px;
       overflow: auto;
@@ -10,6 +10,10 @@
       }
       &:nth-child(odd) {
          background: #272727;
+      }
+      audio {
+         display: block;
+         z-index: 1000;
       }
       .play-button {
          background: url("/assets/play_button.svg") center center no-repeat;

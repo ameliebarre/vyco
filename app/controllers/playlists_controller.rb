@@ -2,6 +2,7 @@ class PlaylistsController < ApplicationController
    authorize_resource
    before_action :authenticate_user!
    before_action :set_playlist, only: [:show, :edit, :update, :destroy]
+   before_action :display_playlists
 
    def index
       @playlists = Playlist.all
@@ -11,12 +12,10 @@ class PlaylistsController < ApplicationController
    end
 
    def new
-      @playlists = Playlist.all
       @playlist = Playlist.new
    end
 
    def edit
-      @playlists = Playlist.all
    end
 
    def create

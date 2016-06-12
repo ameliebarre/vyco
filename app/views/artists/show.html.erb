@@ -1,31 +1,51 @@
 <p id="notice"><%= notice %></p>
 
-<div class="single-artist-page col-md-11 col-md-offset-1">
+<div class="back-button col-md-2">
+   <i class="fa fa-arrow-left" aria-hidden="true"></i>
+   <%= link_to 'Retour', artists_path %>
+</div>
+
+<div class="single-artist-page col-md-11">
    <% if @artist.avatar.exists? %>
       <div class="artist-avatar col-md-4"><%= image_tag(@artist.avatar.url(:medium)) %></div>
    <% end %>
 
-   <div class="artist-informations col-md-8">
-      <h2><%= @artist.name %></h2>
+   <div class="artist-informations col-md-6">
+      <h2 class="artist-name"><%= @artist.name %></h2>
+
+      <div class="artist-description">
+         <p><%= @artist.description %></p>
+      </div>
+
+      <div id="votable-buttons">
+         <%= link_to like_artist_path(@artist), class: 'like', method: :put do %>
+            <button type="button" class="btn btn-info" aria-label="Left Align">
+               <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
+               <span class="badge"><%= @artist.get_upvotes.size %></span>
+            </button>
+         <% end %>
+
+         <%= link_to dislike_artist_path(@artist), class: 'like', method: :put do %>
+            <button type="button" class="btn btn-info" aria-label="Left Align">
+               <span class="glyphicon glyphicon-thumbs-down glyphicon-align-center" aria-hidden="true"></span>
+               <span class="badge"><%= @artist.get_downvotes.size %></span>
+            </button>
+         <% end %>
+      </div>
    </div>
 
-   <div class="artist-description col-md-8">
-      <p><%= @artist.description %></p>
-   </div>
-
-   <div id="discography">
+   <div id="discography" class="col-md-12">
+      <div class="col-md-12">
+         <h3>Discographie</h3>
+      </div>
       <%# Get all the artist's albums %>
       <% @artist.albums.each do |album| %>
-         <%= image_tag(album.avatar(:medium)) %>
-         <%= album.name %>
+         <div class="album col-md-4">
+            <%= link_to image_tag(album.avatar(:medium)), album %>
+            <p><%= link_to album.name, album %></p>
+         </div>
       <% end %>
    </div>
 
-   <div class="edit-section col-md-4">
-      <% if can? :update, @artist %>
-         <%= link_to 'Edit', edit_artist_path(@artist) %>
-      <% end %>
-      |
-      <%= link_to 'Back', artists_path %>
-   </div>
+   
 </div>

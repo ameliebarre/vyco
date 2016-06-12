@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
-   
-  protect_from_forgery with: :exception
+
+   before_action :display_playlists
+
+   protect_from_forgery with: :exception
 
   rescue_from CanCan::AccessDenied do |exception|
      flash[:error] = exception.message
@@ -12,7 +14,6 @@ class ApplicationController < ActionController::Base
   end
 
   def index
-     @playlists = Playlist.all
   end
 
   def show
@@ -29,5 +30,10 @@ class ApplicationController < ActionController::Base
      def playlist_params
         params.require(:playlist).permit(:name, :id_user)
      end
+
+   protected
+      def display_playlists
+         @playlists = Playlist.all
+      end
 
 end

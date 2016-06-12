@@ -3,21 +3,21 @@
    display: block;
 
    .style {
+      margin-bottom: 25px;
       .style-avatar {
-         position: relative;
          img {
             width: 100%;
          }
       }
       .style-name {
-         color: #fff;
+         background: #fff;
+         color: #191a1a;
          margin: 0;
+         text-align: center;
+         padding: 10px 0;
          font-family: 'Montserrat', Arial, sans-serif;
          text-transform: uppercase;
-         font-size: 25px;
-         position: absolute;
-         top: 43%;
-         left: 30%;
+         font-size: 14px;
       }
       .edit-section {
          background: #FF5A51;

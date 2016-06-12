@@ -8,12 +8,10 @@
  <% @tracks.each do |track| %>
    <div class="track">
       <div class="play-button col-md-2">
-         <!--
          <audio controls="controls">
            Votre navigateur ne supporte pas l'élément <code>audio</code>.
-           <source src="file:<%=track.track_file.path%>">
+           <source src="<%= track.track_file.url %>">
          </audio>
-         -->
          Play
       </div>
       <p class="col-md-4"><%= track.name %></p>

@@ -1,9 +1,9 @@
 class TracksController < ApplicationController
    authorize_resource
    before_action :set_track, only: [:show, :edit, :update, :destroy]
+   before_action :display_playlists
 
    def index
-      @playlists = Playlist.all
       @tracks = Track.all
    end
 
@@ -11,12 +11,10 @@ class TracksController < ApplicationController
    end
 
    def new
-      @playlists = Playlist.all
       @track = Track.new
    end
 
    def edit
-     @playlists = Playlist.all
   end
 
    def create

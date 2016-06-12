@@ -6,11 +6,20 @@
    </div>
 <% end %>
 
+<section id="search-artists" class="search-bar col-md-12">
+   <%= simple_form_for :artists, url: artists_path, method: :get, html: { class: 'form-inline' } do |f| %>
+      <%= f.input_field :search, label: false,
+                                 placeholder: 'Rechercher un artiste',
+                                 class: 'form-control',
+                                 value: @search_value %>
+   <% end %>
+</section>
+
 <div id="artists-list">
    <% @artists.each do |artist| %>
       <div class="artist col-md-3">
          <%= artist.avatar.exists? ? image_tag(artist.avatar.url(:medium)) : '&empty;'.html_safe %>
-         <p class="artist-name"><%= artist.name %></p>
+         <p class="artist-name"><%= link_to artist.name, artist %></p>
          <% if can? :create, Artist %>
             <div class="edit-section">
                <%= link_to 'Voir', artist %>

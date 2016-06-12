@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607081846) do
+ActiveRecord::Schema.define(version: 20160612090159) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160607081846) do
     t.datetime "avatar_updated_at"
     t.integer  "artist_id"
     t.integer  "track_id"
+    t.string   "slug"
   end
 
   add_index "albums", ["artist_id"], name: "index_albums_on_artist_id"
@@ -95,6 +96,7 @@ ActiveRecord::Schema.define(version: 20160607081846) do
     t.integer  "track_file_file_size"
     t.datetime "track_file_updated_at"
     t.integer  "album_id"
+    t.string   "slug"
   end
 
   add_index "tracks", ["album_id"], name: "index_tracks_on_album_id"
@@ -123,5 +125,20 @@ ActiveRecord::Schema.define(version: 20160607081846) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "votable_id"
+    t.string   "votable_type"
+    t.integer  "voter_id"
+    t.string   "voter_type"
+    t.boolean  "vote_flag"
+    t.string   "vote_scope"
+    t.integer  "vote_weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
 
 end
