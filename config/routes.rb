@@ -15,4 +15,7 @@ Rails.application.routes.draw do
         put "dislike" => "artists#downvote"
      end
   end
+
+  resources :favorite_artists, only: [:create, :destroy]
+
 end

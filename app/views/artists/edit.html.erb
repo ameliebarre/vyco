@@ -1,6 +1,9 @@
-<h1>Editing Artist</h1>
+<div class="back-button col-md-2">
+   <i class="fa fa-arrow-left" aria-hidden="true"></i>
+   <%= link_to 'Retour', artists_path %>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @artist %> |
-<%= link_to 'Back', artists_path %>
+<div class="update-section col-md-10 col-md-offset-1">
+   <h1>Modifier un artiste</h1>
+   <%= render 'form' %>
+</div>

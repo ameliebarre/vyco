@@ -44,19 +44,27 @@
    .artist-avatar {
       img {
          border-radius: 100%;
+         border: 8px solid rgba(100, 100, 100, 0.1);
       }
    }
    .artist-informations {
       color: #fff;
-      h2 {
+      .artist-name {
          color: #fff;
          font: 300 17px 'Montserrat', Arial, sans-serif;
          text-transform: uppercase;
-         margin: 0 0 20px 0;
+         float: left;
+         margin: 8px 20px 0 0;
       }
-      p {
+      .add-to-favorite {
+         float: left;
+         margin-bottom: 12px;
+      }
+      .artist-description {
          font-size: 12px;
          text-align: justify;
+         display: block;
+         clear: both;
       }
       #votable-buttons {
          .btn-info {
@@ -80,6 +88,7 @@
          color: #fff;
       }
       .album {
+         margin-bottom: 25px;
          img {
             width: 100%;
          }
@@ -89,6 +98,7 @@
             font: 300 12px 'Montserrat', Arial, sans-serif;
             color: #191a1a;
             padding: 10px;
+            margin: 0;
             a {
                color: #191a1a;
             }

@@ -30,6 +30,8 @@ class ArtistsController < ApplicationController
       else
         render :new
       end
+
+      @favrecipes = current_user.favorites.create(params[:user_id])
   end
 
   def update
@@ -64,7 +66,7 @@ class ArtistsController < ApplicationController
     end
 
     def artist_params
-      params.require(:artist).permit(:name, :firstname, :avatar, :description, album_ids: [])
+      params.require(:artist).permit(:name, :firstname, :avatar, :description, album_ids: [], user_ids: [])
     end
 
     def search_params

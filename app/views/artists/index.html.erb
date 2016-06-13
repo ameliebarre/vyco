@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <% if can? :create, Artist %>
    <div class="col-md-2">
       <%= link_to 'Ajouter un artiste', new_artist_path, class: 'add-new-artist add' %>
@@ -18,7 +16,7 @@
 <div id="artists-list">
    <% @artists.each do |artist| %>
       <div class="artist col-md-3">
-         <%= artist.avatar.exists? ? image_tag(artist.avatar.url(:medium)) : '&empty;'.html_safe %>
+         <%= link_to artist.avatar.exists? ? image_tag(artist.avatar.url(:medium)) : '&empty;'.html_safe, artist %>
          <p class="artist-name"><%= link_to artist.name, artist %></p>
          <% if can? :create, Artist %>
             <div class="edit-section">

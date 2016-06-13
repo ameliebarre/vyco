@@ -56,8 +56,17 @@
       <div class="row">
          <% if user_signed_in? %>
          <div id="sidebar" class="col-md-3 col-sm-3 col-xs-5">
-            <div id="sidebar-nav">
 
+            <%= content_tag :span, "Vyco", :class => "logo" %>
+
+            <div id="user-informations">
+               <span class="gravatar"><%= image_tag gravatar_url(current_user) %></span>
+               <p>Hello <%= current_user.email %></p>
+               <%= link_to('Déconnexion', destroy_user_session_path, :method => :delete, :class => "logout") %>
+            </div>
+
+            <!-- Sidebar -->
+            <div id="sidebar-nav">
                <section id="discover">
                   <h3>Parcourir</h3>
                   <p>Découvrir</p>

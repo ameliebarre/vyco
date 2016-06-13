@@ -1,3 +1,44 @@
+#albums-list {
+   clear: both;
+   display: block;
+
+   .album {
+      margin-bottom: 30px;
+      img {
+         width: 100%;
+      }
+      p {
+         font: 300 12px 'Montserrat', Arial, sans-serif;
+         text-transform: uppercase;
+         margin: 5px 0 0 0;
+      }
+      .album-name {
+         background: #fff;
+         margin: 0;
+         padding: 10px;
+         height: 50px;
+         width: 100%;
+         a {
+            color: #191a1a;
+         }
+      }
+      .edit-section {
+         background: #FF5A51;
+         padding: 5px 10px;
+         width: 100%;
+         a {
+            color: #fff;
+            font-size: 11px;
+            margin-right: 10px;
+         }
+      }
+   }
+}
+
+.add-new-album {
+   margin-bottom: 20px;
+}
+
 .single-album-page {
    color: #fff;
    margin-top: 50px;

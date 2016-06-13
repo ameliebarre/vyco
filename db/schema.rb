@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160612090159) do
+ActiveRecord::Schema.define(version: 20160613213521) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name"
@@ -45,6 +45,24 @@ ActiveRecord::Schema.define(version: 20160612090159) do
     t.string   "description"
     t.string   "slug"
   end
+
+  create_table "favorite_artists", force: :cascade do |t|
+    t.integer  "album_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "favorited_id"
+    t.string   "favorited_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "favorites", ["favorited_type", "favorited_id"], name: "index_favorites_on_favorited_type_and_favorited_id"
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false

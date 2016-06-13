@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% current_user.favorite_artists.each do |favorite| %>
+   <p><%= favorite.name %></p>
+<% end %>
 
 <div class="back-button col-md-2">
    <i class="fa fa-arrow-left" aria-hidden="true"></i>
@@ -12,6 +14,14 @@
 
    <div class="artist-informations col-md-6">
       <h2 class="artist-name"><%= @artist.name %></h2>
+
+      <div class="add-to-favorite">
+      <%- unless current_user.favorite_artists.exists?(id: @artist.id) -%>
+         <%= link_to 'S\'abonner', favorite_artists_path(artist_id: @artist), method: :post, class: 'add-to-favorite favorite-button' %>
+      <%- else -%>
+         <%= link_to 'Se désabonner', favorite_artist_path(@artist), method: :delete, class: 'remove-from-favorite favorite-button' %>
+      <%- end -%>
+      </div>
 
       <div class="artist-description">
          <p><%= @artist.description %></p>
@@ -47,5 +57,5 @@
       <% end %>
    </div>
 
-   
+
 </div>

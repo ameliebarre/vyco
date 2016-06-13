@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
 
    has_many :playlists
 
+   has_many :favorites
+   has_many :favorite_artists, through: :favorites, source: :favorited, source_type: 'Artist'
+
    rolify
    # Include default devise modules. Others available are:
    # :confirmable, :lockable, :timeoutable and :omniauthable

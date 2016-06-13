@@ -5,6 +5,11 @@ class AlbumsController < ApplicationController
 
    def index
       @albums = Album.all
+
+      if params[:albums]
+         @search_value = search_params[:search]
+         @albums = @albums.search(@search_value)
+      end
    end
 
    def show
@@ -47,5 +52,9 @@ class AlbumsController < ApplicationController
 
     def album_params
       params.require(:album).permit(:name, :date_release, :style, :avatar, :style_id, :artist_id)
+    end
+
+    def search_params
+      params.require(:albums).permit(:search)
     end
 end
