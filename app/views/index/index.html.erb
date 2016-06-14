@@ -1,5 +1,15 @@
-<h2>Mes playlists</h2>
+<div id="favorites">
+   <h2 class="col-md-12">Mes playlists</h2>
 
-<h2>Mes albums</h2>
+   <h2 class="col-md-12">Mes albums</h2>
 
-<h2>Mes artistes</h2>
+   <div id="artists-list">
+      <h2 class="col-md-12">Mes artistes</h2>
+      <% current_user.favorite_artists.each do |favorite| %>
+         <div class="artist col-md-2">
+            <%= image_tag(favorite.avatar.url(:medium)) %>
+            <p><%= favorite.name %></p>
+         </div>
+      <% end %>
+   </div>
+</div>

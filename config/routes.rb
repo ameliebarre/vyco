@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :albums
   resources :styles
   resource :admins
+  resource :display_favorite_artists
+  get 'favorite_artists' => 'display_favorite_artists#show'
+  resources :favorite_artists, only: [:create, :destroy]
   root 'index#index'
   get 'index' => 'home#index'
 
@@ -15,7 +18,5 @@ Rails.application.routes.draw do
         put "dislike" => "artists#downvote"
      end
   end
-
-  resources :favorite_artists, only: [:create, :destroy]
 
 end

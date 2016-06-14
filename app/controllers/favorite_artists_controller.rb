@@ -19,4 +19,5 @@ class FavoriteArtistsController < ApplicationController
   def set_artist
     @artist = Artist.find(params[:artist_id] || params[:id])
   end
+
 end

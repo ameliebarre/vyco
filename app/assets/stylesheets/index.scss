@@ -1,0 +1,14 @@
+#favorites {
+   h2 {
+      font: 300 14px 'Montserrat', Arial;
+      text-transform: uppercase;
+      color: #fff;
+   }
+   #artists-list {
+      .artist {
+         img {
+            width: 100%;
+         }
+      }
+   }
+}
