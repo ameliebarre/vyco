@@ -4,6 +4,7 @@ class Track < ActiveRecord::Base
 
    belongs_to :album
    belongs_to :playlist
+   belongs_to :selection
 
    has_attached_file :track_file
 

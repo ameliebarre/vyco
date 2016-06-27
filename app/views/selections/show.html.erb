@@ -1,0 +1,13 @@
+<div class="back-button col-md-2">
+   <i class="fa fa-arrow-left" aria-hidden="true"></i>
+   <%= link_to 'Retour', selections_path %>
+</div>
+
+<div class="single-playlist-page col-md-11">
+   <% if @selection.avatar.exists? %>
+      <div class="playlist-avatar col-md-4"><%= image_tag(@selection.avatar.url(:medium)) %></div>
+   <% end %>
+
+   <h2 class="playlist-name"><%= @selection.name %></h2>
+
+</div>

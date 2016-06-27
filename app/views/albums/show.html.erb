@@ -1,3 +1,8 @@
+<div class="back-button col-md-2">
+   <i class="fa fa-arrow-left" aria-hidden="true"></i>
+   <%= link_to 'Retour', albums_path %>
+</div>
+
 <div class="single-album-page col-md-11 col-md-offset-1">
 
    <% if @album.avatar.exists? %>
@@ -16,30 +21,34 @@
      <p>Date de sortie : <%= @album.date_release %></p>
   </div>
 
-  <div class="actions">
-    <%= link_to 'Edit', edit_album_path(@album) %>
-    <%= link_to 'Back', albums_path %>
-   </div>
+  <div class="add-to-favorite">
+     <%- unless current_user.favorite_albums.exists?(id: @album.id) -%>
+        <%= link_to 'Sauvegarder', favorite_albums_path(album_id: @album), method: :post, class: 'add-to-favorite favorite-button' %>
+     <%- else -%>
+        <%= link_to 'Supprimer', favorite_album_path(@album), method: :delete, class: 'remove-from-favorite favorite-button' %>
+     <%- end -%>
+  </div>
 
    <div id="tracks-list" class="col-md-10">
       <%# Get all the tracks's albums %>
       <% @album.tracks.each do |track| %>
       <div class="track">
-         <div class="play-button col-md-4 col-md-offset-1">
+         <div class="play-button">
             <!--
             <audio controls="controls">
               Votre navigateur ne supporte pas l'élément <code>audio</code>.
-              <source src="file:<%=track.track_file.path%>">
+              <source src="<%=track.track_file.path%>">
             </audio>
             -->
             Play
          </div>
-         <p class="col-md-4"><%= track.name %></p>
-         <div class="edit-section">
-            <%= link_to 'Show', track, class: 'col-md-2' %>
-            <%= link_to 'Edit', edit_track_path(track), class: 'col-md-2' %></p>
-            <%= link_to 'Destroy', track, method: :delete, data: { confirm: 'Are you sure?' }, class: 'col-md-2'%>
-         </div>
+         <p class="track-name"><%= track.name %></p>
+         <% if can? :create, Track %>
+            <div class="edit-section">
+               <%= link_to 'Edit', edit_track_path(track) %>
+               <%= link_to 'Destroy', track, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+         <% end %>
       </div>
     <% end %>
    </div>

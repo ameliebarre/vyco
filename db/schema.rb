@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160613213521) do
+ActiveRecord::Schema.define(version: 20160626183152) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name"
@@ -28,9 +28,11 @@ ActiveRecord::Schema.define(version: 20160613213521) do
     t.integer  "artist_id"
     t.integer  "track_id"
     t.string   "slug"
+    t.integer  "slider_id"
   end
 
   add_index "albums", ["artist_id"], name: "index_albums_on_artist_id"
+  add_index "albums", ["slider_id"], name: "index_albums_on_slider_id"
   add_index "albums", ["style_id"], name: "index_albums_on_style_id"
   add_index "albums", ["track_id"], name: "index_albums_on_track_id"
 
@@ -82,7 +84,10 @@ ActiveRecord::Schema.define(version: 20160613213521) do
     t.integer  "id_user"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
+
+  add_index "playlists", ["user_id"], name: "index_playlists_on_user_id"
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -94,6 +99,16 @@ ActiveRecord::Schema.define(version: 20160613213521) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
+
+  create_table "selections", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+  end
 
   create_table "styles", force: :cascade do |t|
     t.string   "name"

@@ -3,7 +3,6 @@ class CreateTracks < ActiveRecord::Migration
     create_table :tracks do |t|
       t.string :name
       t.string :path
-      t.integer :id_album
 
       t.timestamps null: false
     end

@@ -1,14 +1,56 @@
 #favorites {
+   margin-bottom: 50px;
+   overflow: auto;
    h2 {
-      font: 300 14px 'Montserrat', Arial;
+      font: 300 13px 'Montserrat', Arial;
       text-transform: uppercase;
       color: #fff;
+      border-bottom: 1px solid #2b2c2c;
+      padding: 0 0 10px 0;
+      margin-top: 40px;
    }
-   #artists-list {
-      .artist {
+   section {
+      .favorite {
          img {
             width: 100%;
          }
+         p {
+            background: #fff;
+            padding: 12px 5px;
+            margin: 0;
+            a {
+               color: #191a1a;
+               font: 300 8px 'Montserrat', Arial, sans-serif;
+               text-transform: uppercase;
+               display: block;
+            }
+         }
+      }
+      .link-to-favorites {
+         background: #FF5A51;
+         color: #fff;
+         border-radius: 12px;
+         padding: 8px;
+         display: block;
+         width: 190px;
+         text-align: center;
+         margin-top: 20px;
+         font-size: 11px;
+         line-height: 1;
+         display: block;
+         clear: both;
+         &:hover {
+            background: #E03A47;
+         }
+      }
+   }
+   #playlists {
+      .playlist-icon {
+         background: #FF5A51;
+         color: #fff;
+         padding: 20px;
+         width: 100%;
+         text-align: center;
       }
    }
 }

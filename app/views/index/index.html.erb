@@ -1,15 +1,38 @@
 <div id="favorites">
-   <h2 class="col-md-12">Mes playlists</h2>
-
-   <h2 class="col-md-12">Mes albums</h2>
-
-   <div id="artists-list">
-      <h2 class="col-md-12">Mes artistes</h2>
-      <% current_user.favorite_artists.each do |favorite| %>
-         <div class="artist col-md-2">
-            <%= image_tag(favorite.avatar.url(:medium)) %>
-            <p><%= favorite.name %></p>
+   <!-- Albums enregistrés -->
+   <section id="favorite-artists">
+      <h2 class="col-md-12">Mes albums</h2>
+      <% @fav_albums.each do |favorite| %>
+         <div class="favorite col-md-2">
+            <%= link_to favorite.avatar.exists? ? image_tag(favorite.avatar.url(:medium)) : '&empty;'.html_safe, favorite %>
+            <p class="artist-name"><%= link_to favorite.name, favorite %></p>
          </div>
       <% end %>
-   </div>
+      <%= link_to 'Voir tous mes albums favoris', display_favorite_albums_path, class: 'link-to-favorites col-md-12' %>
+   </section>
+
+   <!-- Artistes favoris -->
+   <section id="favorite-artists">
+      <h2 class="col-md-12">Mes artistes</h2>
+      <% @fav_artists.each do |favorite| %>
+         <div class="favorite col-md-2">
+            <%= link_to favorite.avatar.exists? ? image_tag(favorite.avatar.url(:medium)) : '&empty;'.html_safe, favorite %>
+            <p class="artist-name"><%= link_to favorite.name, favorite %></p>
+         </div>
+      <% end %>
+      <%= link_to 'Voir tous mes artistes favoris', display_favorite_artists_path, class: 'link-to-favorites col-md-12' %>
+   </section>
+
+   <!-- Playlists -->
+   <section id="playlists">
+      <h2 class="col-md-12">Mes playlists</h2>
+      <% if @user_playlists %>
+         <% @user_playlists.each do |playlist| %>
+            <div class="favorite col-md-2">
+               <div class="playlist-icon"><i class="fa fa-music" aria-hidden="true"></i></div>
+               <p class="playlist-name"><%= link_to playlist.name, playlist %></p>
+            </div>
+         <% end %>
+      <% end %>
+   </section>
 </div>

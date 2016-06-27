@@ -51,7 +51,7 @@ class AlbumsController < ApplicationController
     end
 
     def album_params
-      params.require(:album).permit(:name, :date_release, :style, :avatar, :style_id, :artist_id)
+      params.require(:album).permit(:name, :date_release, :style, :avatar, :style_id, :artist_id, user_ids: [])
     end
 
     def search_params

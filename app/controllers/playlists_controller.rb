@@ -19,7 +19,7 @@ class PlaylistsController < ApplicationController
    end
 
    def create
-      playlist_params[:id_user] = current_user.id
+      playlist_params[:user_id] = current_user.id
       @playlist = Playlist.new(playlist_params)
 
       if @playlist.save
@@ -48,6 +48,6 @@ class PlaylistsController < ApplicationController
       end
 
       def playlist_params
-         params.require(:playlist).permit(:name, :id_user)
+         params.require(:playlist).permit(:name, :user_id)
       end
 end

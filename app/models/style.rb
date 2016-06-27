@@ -1,5 +1,5 @@
 class Style < ActiveRecord::Base
-   has_many :album
+   has_many :albums
 
    has_attached_file :avatar, styles: { medium: '300x300', thumb: '150x150' }
 

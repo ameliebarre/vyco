@@ -1,6 +1,7 @@
 #albums-list {
    clear: both;
    display: block;
+   margin-top: 50px;
 
    .album {
       margin-bottom: 30px;
@@ -58,6 +59,9 @@
       font-family: 'Montserrat', Arial, sans-serif;
       font-size: 11px;
       text-transform: uppercase;
+   }
+   .add-to-favorite {
+      float: left;
    }
    .release-date {
       font-size: 13px;

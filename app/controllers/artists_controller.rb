@@ -30,8 +30,6 @@ class ArtistsController < ApplicationController
       else
         render :new
       end
-
-      @favrecipes = current_user.favorites.create(params[:user_id])
   end
 
   def update

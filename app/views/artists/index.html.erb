@@ -17,7 +17,10 @@
    <% @artists.each do |artist| %>
       <div class="artist col-md-3">
          <%= link_to artist.avatar.exists? ? image_tag(artist.avatar.url(:medium)) : '&empty;'.html_safe, artist %>
-         <p class="artist-name"><%= link_to artist.name, artist %></p>
+         <div class="artist-informations">
+            <p class="artist-name"><%= link_to artist.name, artist %></p>
+            <p class="count"><%= artist.albums.count() %> <% if artist.albums.count() > 1 %>albums<% else %> album<% end %></p>
+         </div>
          <% if can? :create, Artist %>
             <div class="edit-section">
                <%= link_to 'Voir', artist %>

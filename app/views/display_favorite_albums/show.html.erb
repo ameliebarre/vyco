@@ -1,0 +1,8 @@
+<div id="albums-list">
+   <% current_user.favorite_albums.each do |favorite| %>
+      <div class="album col-md-3">
+         <%= link_to favorite.avatar.exists? ? image_tag(favorite.avatar(:medium)) : '&empty;'.html_safe, favorite %>
+         <p class="album-name"><%= link_to favorite.name, favorite %></p>
+      </div>
+   <% end %>
+</div>

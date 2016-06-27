@@ -12,11 +12,11 @@
       <h2 class="artist-name"><%= @artist.name %></h2>
 
       <div class="add-to-favorite">
-      <%- unless current_user.favorite_artists.exists?(id: @artist.id) -%>
-         <%= link_to 'S\'abonner', favorite_artists_path(artist_id: @artist), method: :post, class: 'add-to-favorite favorite-button' %>
-      <%- else -%>
-         <%= link_to 'Se désabonner', favorite_artist_path(@artist), method: :delete, class: 'remove-from-favorite favorite-button' %>
-      <%- end -%>
+         <%- unless current_user.favorite_artists.exists?(id: @artist.id) -%>
+            <%= link_to 'S\'abonner', favorite_artists_path(artist_id: @artist), method: :post, class: 'add-to-favorite favorite-button' %>
+         <%- else -%>
+            <%= link_to 'Se désabonner', favorite_artist_path(@artist), method: :delete, class: 'remove-from-favorite favorite-button' %>
+         <%- end -%>
       </div>
 
       <div class="artist-description">

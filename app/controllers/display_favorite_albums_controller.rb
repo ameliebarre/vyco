@@ -1,0 +1,3 @@
+class DisplayFavoriteAlbumsController < ApplicationController
+
+end

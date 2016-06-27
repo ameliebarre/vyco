@@ -2,7 +2,7 @@
    <% current_user.favorite_artists.each do |favorite| %>
       <div class="artist col-md-3">
          <%= link_to favorite.avatar.exists? ? image_tag(favorite.avatar.url(:medium)) : '&empty;'.html_safe, favorite %>
-         <p class="artist-name"><%= favorite.name %></p>
+         <p class="artist-name"><%= link_to favorite.name, favorite %></p>
       </div>
    <% end %>
 </div>

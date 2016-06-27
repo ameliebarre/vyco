@@ -1,0 +1,21 @@
+<% if can? :create, Selection %>
+   <div class="col-md-2">
+      <%= link_to 'Ajouter une playlist', new_selection_path, class: 'add-new-playlist add' %>
+   </div>
+<% end %>
+
+<div id="playlists-list">
+   <% @selections.each do |selection| %>
+      <div class="playlist col-md-3">
+         <%= link_to selection.avatar.exists? ? image_tag(selection.avatar.url(:medium)) : '&empty;'.html_safe, selection %>
+         <p class="playlist-name"><%= link_to selection.name, selection %></p>
+         <% if can? :create, Selection %>
+            <div class="edit-playlist">
+               <%= link_to 'Voir', selection %>
+               <%= link_to 'Modifier', edit_selection_path(selection) %>
+               <%= link_to 'Supprimer', selection, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+         <% end %>
+      </div>
+   <% end %>
+</div>

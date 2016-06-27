@@ -4,6 +4,7 @@
   <title>Vyco</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/public/favicon.png" />
   <%= csrf_meta_tags %>
 
   <!-- FONTS -->
@@ -21,7 +22,7 @@
          <div class="row">
             <div class="col-md-9">
                <div class="col-md-2">
-                  <%= content_tag :span, "Vyco", :class => "logo" %>
+                  <%= link_to "Vyco", root_path, :class => "logo" %>
                </div>
                <div class="col-md-10">
                   <ul>
@@ -57,7 +58,7 @@
          <% if user_signed_in? %>
          <div id="sidebar" class="col-md-3 col-sm-3 col-xs-5">
 
-            <%= content_tag :span, "Vyco", :class => "logo" %>
+            <%= link_to "Vyco", root_path, :class => "logo" %>
 
             <div id="user-informations">
                <span class="gravatar"><%= image_tag gravatar_url(current_user) %></span>
@@ -70,8 +71,8 @@
                <section id="discover">
                   <h3>Parcourir</h3>
                   <p>Découvrir</p>
-                  <%= link_to 'Artistes', artists_path %>
-                  <p>Albums</p>
+                  <p><%= link_to 'Artistes', artists_path %></p>
+                  <p><%= link_to 'Albums', albums_path %></p>
                </section>
 
                <section id="music">
@@ -88,7 +89,7 @@
                   </div>
                   <% if @playlists %>
                      <% @playlists.each do |playlist| %>
-                        <p><i class="fa fa-music" aria-hidden="true"></i> <%= playlist.name %></p>
+                        <p><i class="fa fa-music" aria-hidden="true"></i> <%= link_to playlist.name, playlist %></p>
                      <% end %>
                   <% end %>
                </section>

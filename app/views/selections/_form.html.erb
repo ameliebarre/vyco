@@ -1,0 +1,29 @@
+<%= simple_form_for(@selection) do |f| %>
+  <% if @selection.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@selection.errors.count, "error") %> prohibited this playlist from being saved:</h2>
+
+      <ul>
+      <% @selection.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+     <div class="add-field col-md-5">
+        <%= f.input :name, label: 'Nom de la playlist' %>
+     </div>
+  </div>
+
+  <div class="row">
+     <div class="col-md-5">
+       <%= f.input :avatar, as: :file, class: 'selection-avatar' %>
+     </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Enregistrer', class: 'btn-submit' %>
+  </div>
+<% end %>
